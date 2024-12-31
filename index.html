@@ -1,0 +1,1223 @@
+<html>
+	<title>Musicana</title>
+	<script src=data.js></script>
+
+<script>
+
+function myFunction(gettheid,imgormp3,whichimage,tdid) 
+{
+	var x = document.getElementById(gettheid);
+	if (x.style.display === "none") 
+	x.style.display = "block";
+	else
+	  x.style.display = "block";
+	  
+	document.getElementById(tdid).style.backgroundColor='lightgreen';
+			
+	if(imgormp3 == "audio")
+	{
+		var myAudio=localStorage.getItem(whichimage);
+		//window.open(myAudio,'targetWindow', 'toolbar=no, location=no, titlebar=no,status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=250px, top=150px left=420px');
+		//return false;
+
+		var iframe = '<html><head><style>body, html {width: 100%; height: 100%; margin: 0; padding: 0}</style></head><body><iframe src='+myAudio+' style="height:100%;width:100%"></iframe></body></html>';
+		var win = window.open("","","width=1090px, height=550px, top=25px left=120px,toolbar=no,menubar=no,resizable=yes");
+		win.document.write(iframe);
+	}
+	else if (imgormp3 == "video")
+	{
+		localStorage.setItem("videoname",whichimage);
+		window.open("videoplayer.html",'targetWindow', 'toolbar=no,titlebar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1290px, height=650px, top=25px left=120px');
+		return false;
+	}
+	else
+	{
+		//window.open(whichimage,'targetWindow', 'toolbar=no, location=no, titlebar=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1090px, height=550px, top=25px left=120px'); 
+		//return false;
+
+		var iframe = '<html><head><style>body, html {width: 100%; height: 100%; margin: 0; padding: 0}</style></head><body><iframe src='+whichimage+' style="height:100%;width:100%"></iframe></body></html>';
+		var win = window.open("","","width=1090px, height=550px, top=25px left=120px,toolbar=no,menubar=no,resizable=yes");
+		win.document.write(iframe);
+	}
+}
+
+function showHint(forwhich) 
+{
+	var hintValue=localStorage.getItem(forwhich);
+	alert(hintValue);
+}
+
+ 
+</script>
+	<body bgcolor="lightblue"><br><br>
+	<form method="POST">
+		<table width=100% valign=top>
+			<tr valign=top>
+				<td width=85%>
+					<table width=100% border=1>
+						<tr>
+							<td align=center><b><font size="3" face="verdana" color="blue"><font size="6" face="verdana"><i>Images
+							</td>
+							<td align=center><b><font size="3" face="verdana" color="blue"><font size="6" face="verdana"><i>Videos
+							</td>
+							<td align=center><b><font size="3" face="verdana" color="blue"><font size="6" face="verdana"><i>1971-1980
+							</td>
+							<td align=center><b><font size="3" face="verdana" color="blue"><font size="6" face="verdana"><i>1981-1990
+							</td>
+							<td align=center><b><font size="3" face="verdana" color="blue"><font size="6" face="verdana"><i>1991-2000
+							</td>
+							<td align=center><b><font size="3" face="verdana" color="blue"><font size="6" face="verdana"><i>2001-2010
+							</td>
+							<td align=center><b><font size="3" face="verdana" color="blue"><font size="6" face="verdana"><i>2011-2020
+							</td>
+						</tr>
+
+						<!-- *********************** FIRST ROW ***********************-->
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image1table">
+									<tr>
+										<div id="row1div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row1div1','imgg','"+image1+"','image1table')>10</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video1table">
+									<tr>
+										<div id="row1div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row1div2','video','"+video1+"','video1table')>10</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio1col1table">
+									<tr>
+										<div id="audio1col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio1col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio1col1div","audio","audio1col1","audio1col1table")>10</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio1col2table">
+									<tr>
+										<div id="audio1col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio1col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio1col2div","audio","audio1col2","audio1col2table")>10</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio1col3table">
+									<tr>
+										<div id="audio1col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio1col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio1col3div","audio","audio1col3","audio1col3table")>10</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio1col4table">
+									<tr>
+										<div id="audio1col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio1col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio1col4div","audio","audio1col4","audio1col4table")>10</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio1col5table">
+									<tr>
+										<div id="audio1col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio1col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio1col5div","audio","audio1col5","audio1col5table")>10</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+
+						<!-- *********************** SECOND ROW ***********************-->
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image2table">
+									<tr>
+										<div id="row2div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row2div1','imgg','"+image2+"','image2table')>20</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video2table">
+									<tr>
+										<div id="row2div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row2div2','video','"+video2+"','video2table')>20</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio2col1table">
+									<tr>
+										<div id="audio2col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio2col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio2col1div","audio","audio2col1","audio2col1table")>20</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio2col2table">
+									<tr>
+										<div id="audio2col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio2col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio2col2div","audio","audio2col2","audio2col2table")>20</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio2col3table">
+									<tr>
+										<div id="audio2col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio2col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio2col3div","audio","audio2col3","audio2col3table")>20</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio2col4table">
+									<tr>
+										<div id="audio2col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio2col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio2col4div","audio","audio2col4","audio2col4table")>20</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio2col5table">
+									<tr>
+										<div id="audio2col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio2col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio2col5div","audio","audio2col5","audio2col5table")>20</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+
+						<!-- *********************** THIRD ROW ***********************-->
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image3table">
+									<tr>
+										<div id="row2div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row2div1','imgg','"+image3+"','image3table')>30</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video3table">
+									<tr>
+										<div id="row3div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row3div2','video','"+video3+"','video3table')>30</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio3col1table">
+									<tr>
+										<div id="audio3col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio3col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio3col1div","audio","audio3col1","audio3col1table")>30</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio3col2table">
+									<tr>
+										<div id="audio3col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio3col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio3col2div","audio","audio3col2","audio3col2table")>30</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio3col3table">
+									<tr>
+										<div id="audio3col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio3col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio3col3div","audio","audio3col3","audio3col3table")>30</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio3col4table">
+									<tr>
+										<div id="audio3col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio3col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio3col4div","audio","audio3col4","audio3col4table")>30</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio3col5table">
+									<tr>
+										<div id="audio3col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio3col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio3col5div","audio","audio3col5","audio3col5table")>30</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+						<!-- *********************** FOURTH ROW ***********************-->
+
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image4table">
+									<tr>
+										<div id="row2div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row2div1','imgg','"+image4+"','image4table')>40</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video4table">
+									<tr>
+										<div id="row4div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row4div2','video','"+video4+"','video4table')>40</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio4col1table">
+									<tr>
+										<div id="audio4col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio4col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio4col1div","audio","audio4col1","audio4col1table")>40</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio4col2table">
+									<tr>
+										<div id="audio4col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio4col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio4col2div","audio","audio4col2","audio4col2table")>40</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio4col3table">
+									<tr>
+										<div id="audio4col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio4col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio4col3div","audio","audio4col3","audio4col3table")>40</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio4col4table">
+									<tr>
+										<div id="audio4col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio4col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio4col4div","audio","audio4col4","audio4col4table")>40</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio4col5table">
+									<tr>
+										<div id="audio4col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio4col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio4col5div","audio","audio4col5","audio4col5table")>40</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+
+						<!-- *********************** FIFTH ROW ***********************-->
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image5table">
+									<tr>
+										<div id="row2div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row2div1','imgg','"+image5+"','image5table')>50</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video5table">
+									<tr>
+										<div id="row5div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row5div2','video','"+video5+"','video5table')>50</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio5col1table">
+									<tr>
+										<div id="audio5col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio5col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio5col1div","audio","audio5col1","audio5col1table")>50</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio5col2table">
+									<tr>
+										<div id="audio5col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio5col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio5col2div","audio","audio5col2","audio5col2table")>50</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio5col3table">
+									<tr>
+										<div id="audio5col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio5col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio5col3div","audio","audio5col3","audio5col3table")>50</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio5col4table">
+									<tr>
+										<div id="audio5col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio5col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio5col4div","audio","audio5col4","audio5col4table")>50</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio5col5table">
+									<tr>
+										<div id="audio5col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio5col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio5col5div","audio","audio5col5","audio5col5table")>50</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+
+						<!-- *********************** SIXTH ROW ***********************-->
+
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image6table">
+									<tr>
+										<div id="row2div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image6hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row2div1','imgg','"+image6+"','image6table')>60</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video6table">
+									<tr>
+										<div id="row6div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video6hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row6div2','video','"+video6+"','video6table')>60</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio6col1table">
+									<tr>
+										<div id="audio6col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio6col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio6col1div","audio","audio6col1","audio6col1table")>60</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio6col2table">
+									<tr>
+										<div id="audio6col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio6col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio6col2div","audio","audio6col2","audio6col2table")>60</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio6col3table">
+									<tr>
+										<div id="audio6col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio6col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio6col3div","audio","audio6col3","audio6col3table")>60</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio6col4table">
+									<tr>
+										<div id="audio6col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio6col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio6col4div","audio","audio6col4","audio6col4table")>60</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio6col5table">
+									<tr>
+										<div id="audio6col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio6col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio6col5div","audio","audio6col5","audio6col5table")>60</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+
+						<!-- *********************** SEVENTH ROW ***********************-->
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image7table">
+									<tr>
+										<div id="row7div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image7hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row7div1','imgg','"+image7+"','image7table')>70</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video7table">
+									<tr>
+										<div id="row7div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video7hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row7div2','video','"+video7+"','video7table')>70</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio7col1table">
+									<tr>
+										<div id="audio7col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio7col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio7col1div","audio","audio7col1","audio7col1table")>70</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio7col2table">
+									<tr>
+										<div id="audio7col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio7col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio7col2div","audio","audio7col2","audio7col2table")>70</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio7col3table">
+									<tr>
+										<div id="audio7col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio7col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio7col3div","audio","audio7col3","audio7col3table")>70</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio7col4table">
+									<tr>
+										<div id="audio7col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio7col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio7col4div","audio","audio7col4","audio7col4table")>70</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio7col5table">
+									<tr>
+										<div id="audio7col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio7col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio7col5div","audio","audio7col5","audio7col5table")>70</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+
+						<!-- *********************** EIGHT ROW ***********************-->
+						<tr><td colspan=7>&nbsp;</td>
+						</tr>
+						</tr>
+						<tr>
+							<td align=center valign=middle width=14%>
+								<table width=100% id = "image8table">
+									<tr>
+										<div id="row7div1" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('image8hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a href=# onclick=myFunction('row7div1','imgg','"+image8+"','image8table')>80</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="video8table">
+									<tr>
+										<div id="row8div2" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('video8hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write("<a id='omerea' href=# onclick=myFunction('row8div2','video','"+video8+"','video8table')>80</a>");
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio8col1table">
+									<tr>
+										<div id="audio8col1div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio8col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio8col1div","audio","audio8col1","audio8col1table")>80</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio8col2table">
+									<tr>
+										<div id="audio8col2div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio8col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio8col2div","audio","audio8col2","audio8col2table")>80</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio8col3table">
+									<tr>
+										<div id="audio8col3div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio8col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio8col3div","audio","audio8col3","audio8col3table")>80</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio8col4table">
+									<tr>
+										<div id="audio8col4div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio8col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio8col4div","audio","audio8col4","audio8col4table")>80</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+							<td align=center valign=middle width=14%>
+								<table width=100% id="audio8col5table">
+									<tr>
+										<div id="audio8col5div" style="display: none;">
+										<td width=50%><a href=# onclick="showHint('audio8col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+										<td width=50%><font size="6" face="verdana">
+											<script>
+												document.write('<a href=# onclick=myFunction("audio8col5div","audio","audio8col5","audio8col5table")>80</a>');
+											</script>
+										</td>
+										</div>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+
+						<!-- *********************** NINETH ROW ***********************-->
+							<tr><td colspan=7>&nbsp;</td>
+							</tr>
+							</tr>
+							<tr>
+								<td align=center valign=middle width=14%>
+									<table width=100% id = "image9table">
+										<tr>
+											<div id="row7div1" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('image9hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write("<a href=# onclick=myFunction('row7div1','imgg','"+image9+"','image9table')>90</a>");
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="video9table">
+										<tr>
+											<div id="row9div2" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('video9hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write("<a id='omerea' href=# onclick=myFunction('row9div2','video','"+video9+"','video9table')>90</a>");
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio9col1table">
+										<tr>
+											<div id="audio9col1div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio9col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio9col1div","audio","audio9col1","audio9col1table")>90</a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio9col2table">
+										<tr>
+											<div id="audio9col2div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio9col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio9col2div","audio","audio9col2","audio9col2table")>90</a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio9col3table">
+										<tr>
+											<div id="audio9col3div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio9col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio9col3div","audio","audio9col3","audio9col3table")>90</a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio9col4table">
+										<tr>
+											<div id="audio9col4div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio9col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio9col4div","audio","audio9col4","audio9col4table")>90</a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio9col5table">
+										<tr>
+											<div id="audio9col5div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio9col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio9col5div","audio","audio9col5","audio9col5table")>90</a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+							</tr>
+
+
+							<!-- *********************** TENTH ROW ***********************-->
+							<tr><td colspan=7>&nbsp;</td>
+							</tr>
+							</tr>
+							<tr>
+								<td align=center valign=middle width=14%>
+									<table width=100% id = "image10table">
+										<tr>
+											<div id="row10div1" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('image10hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write("<a href=# onclick=myFunction('row10div1','imgg','"+image10+"','image10table')><img src='star.jpeg' width=60% height=60%></img></a>");
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="video10table">
+										<tr>
+											<div id="row10div2" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('video10hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write("<a id='omerea' href=# onclick=myFunction('row10div2','video','"+video10+"','video10table')><img src='star.jpeg' width=60% height=60%></img></a>");
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio10col1table">
+										<tr>
+											<div id="audio10col1div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio10col1hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio10col1div","audio","audio10col1","audio10col1table")><img src="star.jpeg" width=60% height=60%></img></a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio10col2table">
+										<tr>
+											<div id="audio10col2div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio10col2hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio10col2div","audio","audio10col2","audio10col2table")><img src="star.jpeg" width=60% height=60%></img></a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio10col3table">
+										<tr>
+											<div id="audio10col3div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio10col3hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio10col3div","audio","audio10col3","audio10col3table")><img src="star.jpeg" width=60% height=60%></img></a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio10col4table">
+										<tr>
+											<div id="audio10col4div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio10col4hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio10col4div","audio","audio10col4","audio10col4table")><img src="star.jpeg" width=60% height=60%></img></a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+								<td align=center valign=middle width=14%>
+									<table width=100% id="audio10col5table">
+										<tr>
+											<div id="audio10col5div" style="display: none;">
+											<td width=50%><a href=# onclick="showHint('audio10col5hintvalue')"><img src=hint.jpeg width=30% height=30%></a></td>
+											<td width=50%><font size="6" face="verdana">
+												<script>
+													document.write('<a href=# onclick=myFunction("audio10col5div","audio","audio10col5","audio10col5table")><img src="star.jpeg" width=60% height=60%></img></a>');
+												</script>
+											</td>
+											</div>
+										</tr>
+									</table>
+								</td>
+							</tr>
+
+
+
+
+
+
+					
+					</table>
+				</td>
+				<td width=15% valign=middle>
+					<table width=100% border=1>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Team:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:green;">
+							</td>
+						</tr>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Score:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:green;">
+							</td>
+						</tr>
+					</table>
+					<table width=100% height=20 bgcolor=lightblue>
+						<tr>
+						<td>
+						</td>
+						</tr>
+					</table>
+					<table width=100% border=1>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Team:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:blue;">
+							</td>
+						</tr>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Score:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:blue;">
+							</td>
+						</tr>
+					</table>
+					<table width=100% height=20 bgcolor=lightblue>
+						<tr>
+						<td>
+						</td>
+						</tr>
+					</table>
+					<table width=100% border=1>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Team:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:orange;">
+							</td>
+						</tr>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Score:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:orange;">
+							</td>
+						</tr>
+					</table>
+					<table width=100% height=20 bgcolor=lightblue>
+						<tr>
+						<td>
+						</td>
+						</tr>
+					</table>
+					<table width=100% border=1>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Team:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:darkred;">
+							</td>
+						</tr>
+						<tr>	
+							<td> <b><font size="6" face="verdana">Score:
+							</td>
+							<td><input type=Text size=20% style="height:80px;font-size:20pt;font-weight: bold;color:darkred;">
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>
+	</body>
+</html>

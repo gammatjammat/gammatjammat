@@ -1,0 +1,20 @@
+<html>
+
+<body>
+<script>
+		var myVideo=localStorage.getItem("videoname");
+
+</script>
+<form name="videoplayer" method=POST>
+<table width=100%>
+	<tr>
+		<td colspan=3>
+			<script>
+				document.write("<video controls muted style='width:100%;' autoplay><source src='"+myVideo+"' type='audio/mpeg'></audio>");
+			</script>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
